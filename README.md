@@ -12,7 +12,7 @@ Do rozpoczęcia tego kursu potrzebujesz następujących rzeczy:
 ## Przygotowanie
 1. Sklonuj repozytorium Git
 ```
-git clone ...
+git clone https://github.com/sulmar/sulmar-pip-winforms
 ```
 2. Zbuduj
 ```
