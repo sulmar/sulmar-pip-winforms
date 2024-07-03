@@ -3,7 +3,7 @@
 
 ## Wprowadzenie
 
-Witaj w repozytorium z materiałami do szkolenia **Tworzenie aplikacji Win Forms**.
+Witaj w repozytorium z materiałami do szkolenia **Tworzenie aplikacji Windows Forms**.
 
 Do rozpoczęcia tego kursu potrzebujesz następujących rzeczy:
 
