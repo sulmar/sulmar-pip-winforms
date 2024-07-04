@@ -62,6 +62,23 @@ public class DbInspectorRepository : IInspectorRepository
 
     public List<Inspector> GetByYear(int year)
     {
-        throw new NotImplementedException();
+        string sql = "SELECT InspectorId, Number, FirstName, LastName, Department, Year FROM dbo.Inspectors WHERE Year = @Year";
+
+        List<Inspector> inspectors = new List<Inspector>();
+
+        SqlCommand command = new SqlCommand(sql, _connection);
+        command.Parameters.AddWithValue("@Year", year);
+        _connection.Open();
+
+        SqlDataReader reader = command.ExecuteReader();
+
+        while (reader.Read())
+        {
+            inspectors.Add(Map(reader));
+        }
+
+        _connection.Close();
+
+        return inspectors;
     }
 }

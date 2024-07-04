@@ -17,6 +17,8 @@ namespace WinFormsApp.Views
         public InspectorsView()
         {
             InitializeComponent();
+
+            yearTextBox.Text = DateTime.Today.Year.ToString();
         }
 
         private void GetInspectorsBySearchCriteriaButton_Click(object sender, EventArgs e)
@@ -26,9 +28,12 @@ namespace WinFormsApp.Views
 
             IInspectorRepository repository = new DbInspectorRepository(new Microsoft.Data.SqlClient.SqlConnection(connectionString));
 
-            var inspectors = repository.GetAll();
+            if (int.TryParse(yearTextBox.Text, out int year))
+            {
+                var inspectors = repository.GetByYear(year);
 
-            InspectorsDataGridView.DataSource = inspectors;
+                InspectorsDataGridView.DataSource = inspectors;
+            }
 
         }
     }
