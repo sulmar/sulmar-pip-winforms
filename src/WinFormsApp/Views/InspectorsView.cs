@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,7 @@ namespace WinFormsApp.Views
         private void GetInspectorsBySearchCriteriaButton_Click(object sender, EventArgs e)
         {
             // TODO: Przenieś do pliku konfiguracyjnego
-            string connectionString = "Data Source=DESKTOP-RB5EAJ4\\SQLEXPRESS;Initial Catalog=InspectorsDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+            string connectionString = Program.Configuration.GetConnectionString("InspectorDb");
 
             IInspectorRepository repository = new DbInspectorRepository(new Microsoft.Data.SqlClient.SqlConnection(connectionString));
 

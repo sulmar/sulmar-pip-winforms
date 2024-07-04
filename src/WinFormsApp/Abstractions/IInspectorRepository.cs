@@ -9,6 +9,6 @@ namespace WinFormsApp.Abstractions;
 
 public interface IInspectorRepository
 {
-    public List<Inspector> GetAll();
-    public List<Inspector> GetByYear(int year);
+    List<Inspector> GetAll();
+    List<Inspector> GetByYear(int year);
 }
