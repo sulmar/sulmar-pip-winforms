@@ -21,7 +21,10 @@ namespace WinFormsApp.Views
 
         private void GetInspectorsBySearchCriteriaButton_Click(object sender, EventArgs e)
         {
-            IInspectorRepository repository = new FakeInspectorRepository();
+            // TODO: Przenieś do pliku konfiguracyjnego
+            string connectionString = "Data Source=DESKTOP-RB5EAJ4\\SQLEXPRESS;Initial Catalog=InspectorsDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+
+            IInspectorRepository repository = new DbInspectorRepository(new Microsoft.Data.SqlClient.SqlConnection(connectionString));
 
             var inspectors = repository.GetAll();
 
