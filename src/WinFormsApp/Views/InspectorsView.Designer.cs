@@ -33,7 +33,10 @@
             YearLabel = new Label();
             getInspectorsBySearchCriteriaButton = new Button();
             resultsPanel = new Panel();
+            InspectorsDataGridView = new DataGridView();
             searchPanel.SuspendLayout();
+            resultsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)InspectorsDataGridView).BeginInit();
             SuspendLayout();
             // 
             // searchPanel
@@ -77,11 +80,21 @@
             // resultsPanel
             // 
             resultsPanel.BackColor = SystemColors.Control;
+            resultsPanel.Controls.Add(InspectorsDataGridView);
             resultsPanel.Dock = DockStyle.Fill;
             resultsPanel.Location = new Point(10, 101);
             resultsPanel.Name = "resultsPanel";
             resultsPanel.Size = new Size(780, 339);
             resultsPanel.TabIndex = 1;
+            // 
+            // InspectorsDataGridView
+            // 
+            InspectorsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            InspectorsDataGridView.Dock = DockStyle.Fill;
+            InspectorsDataGridView.Location = new Point(0, 0);
+            InspectorsDataGridView.Name = "InspectorsDataGridView";
+            InspectorsDataGridView.Size = new Size(780, 339);
+            InspectorsDataGridView.TabIndex = 0;
             // 
             // InspectorsView
             // 
@@ -96,6 +109,8 @@
             Text = "Lista inspektorów";
             searchPanel.ResumeLayout(false);
             searchPanel.PerformLayout();
+            resultsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)InspectorsDataGridView).EndInit();
             ResumeLayout(false);
         }
 
@@ -106,5 +121,6 @@
         private Button getInspectorsBySearchCriteriaButton;
         private TextBox yearTextBox;
         private Label YearLabel;
+        private DataGridView InspectorsDataGridView;
     }
 }
