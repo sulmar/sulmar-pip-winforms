@@ -32,27 +32,32 @@ public class DbInspectorRepository : IInspectorRepository
 
         while (reader.Read())
         {
-            var id = reader.GetInt32(reader.GetOrdinal("InspectorId"));
-            var number = reader.GetString(reader.GetOrdinal("Number"));
-            var firstName = reader.GetString(reader.GetOrdinal("FirstName"));
-            var lastName = reader.GetString(reader.GetOrdinal("LastName"));
-            var deparment = reader.GetString(reader.GetOrdinal("Department"));
-            var year = reader.GetInt32(reader.GetOrdinal("Year"));
-
-            Inspector inspector = new Inspector();
-            inspector.Id = id;
-            inspector.FirstName = firstName;
-            inspector.LastName = lastName;
-            inspector.Department = deparment;
-            inspector.Year = year;
-
-            inspectors.Add(inspector);
+            inspectors.Add(Map(reader));
         }
 
         _connection.Close();
 
         return inspectors;
 
+    }
+
+    private static Inspector Map(SqlDataReader reader)
+    {
+        var id = reader.GetInt32(reader.GetOrdinal("InspectorId"));
+        var number = reader.GetString(reader.GetOrdinal("Number"));
+        var firstName = reader.GetString(reader.GetOrdinal("FirstName"));
+        var lastName = reader.GetString(reader.GetOrdinal("LastName"));
+        var deparment = reader.GetString(reader.GetOrdinal("Department"));
+        var year = reader.GetInt32(reader.GetOrdinal("Year"));
+
+        Inspector inspector = new Inspector();
+        inspector.Id = id;
+        inspector.Number = number;
+        inspector.FirstName = firstName;
+        inspector.LastName = lastName;
+        inspector.Department = deparment;
+        inspector.Year = year;
+        return inspector;
     }
 
     public List<Inspector> GetByYear(int year)
