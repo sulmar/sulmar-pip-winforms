@@ -31,7 +31,7 @@
             searchPanel = new Panel();
             yearTextBox = new TextBox();
             YearLabel = new Label();
-            getInspectorsBySearchCriteriaButton = new Button();
+            GetInspectorsBySearchCriteriaButton = new Button();
             resultsPanel = new Panel();
             InspectorsDataGridView = new DataGridView();
             searchPanel.SuspendLayout();
@@ -44,7 +44,7 @@
             searchPanel.BackColor = SystemColors.Control;
             searchPanel.Controls.Add(yearTextBox);
             searchPanel.Controls.Add(YearLabel);
-            searchPanel.Controls.Add(getInspectorsBySearchCriteriaButton);
+            searchPanel.Controls.Add(GetInspectorsBySearchCriteriaButton);
             searchPanel.Dock = DockStyle.Top;
             searchPanel.Location = new Point(10, 10);
             searchPanel.Name = "searchPanel";
@@ -53,7 +53,7 @@
             // 
             // yearTextBox
             // 
-            yearTextBox.Location = new Point(32, 36);
+            yearTextBox.Location = new Point(3, 36);
             yearTextBox.Name = "yearTextBox";
             yearTextBox.Size = new Size(192, 23);
             yearTextBox.TabIndex = 2;
@@ -61,21 +61,22 @@
             // YearLabel
             // 
             YearLabel.AutoSize = true;
-            YearLabel.Location = new Point(32, 15);
+            YearLabel.Location = new Point(3, 15);
             YearLabel.Name = "YearLabel";
             YearLabel.Size = new Size(69, 15);
             YearLabel.TabIndex = 1;
             YearLabel.Text = "Wybierz rok";
             // 
-            // getInspectorsBySearchCriteriaButton
+            // GetInspectorsBySearchCriteriaButton
             // 
-            getInspectorsBySearchCriteriaButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            getInspectorsBySearchCriteriaButton.Location = new Point(607, 24);
-            getInspectorsBySearchCriteriaButton.Name = "getInspectorsBySearchCriteriaButton";
-            getInspectorsBySearchCriteriaButton.Size = new Size(161, 44);
-            getInspectorsBySearchCriteriaButton.TabIndex = 0;
-            getInspectorsBySearchCriteriaButton.Text = "&Pobierz";
-            getInspectorsBySearchCriteriaButton.UseVisualStyleBackColor = true;
+            GetInspectorsBySearchCriteriaButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            GetInspectorsBySearchCriteriaButton.Location = new Point(619, 24);
+            GetInspectorsBySearchCriteriaButton.Name = "GetInspectorsBySearchCriteriaButton";
+            GetInspectorsBySearchCriteriaButton.Size = new Size(161, 44);
+            GetInspectorsBySearchCriteriaButton.TabIndex = 0;
+            GetInspectorsBySearchCriteriaButton.Text = "&Pobierz";
+            GetInspectorsBySearchCriteriaButton.UseVisualStyleBackColor = true;
+            GetInspectorsBySearchCriteriaButton.Click += GetInspectorsBySearchCriteriaButton_Click;
             // 
             // resultsPanel
             // 
@@ -118,7 +119,7 @@
 
         private Panel searchPanel;
         private Panel resultsPanel;
-        private Button getInspectorsBySearchCriteriaButton;
+        private Button GetInspectorsBySearchCriteriaButton;
         private TextBox yearTextBox;
         private Label YearLabel;
         private DataGridView InspectorsDataGridView;

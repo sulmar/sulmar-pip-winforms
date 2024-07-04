@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp.Abstractions;
+using WinFormsApp.Infrastructure;
 
 namespace WinFormsApp.Views
 {
@@ -15,6 +17,16 @@ namespace WinFormsApp.Views
         public InspectorsView()
         {
             InitializeComponent();
+        }
+
+        private void GetInspectorsBySearchCriteriaButton_Click(object sender, EventArgs e)
+        {
+            IInspectorRepository repository = new FakeInspectorRepository();
+
+            var inspectors = repository.GetAll();
+
+            InspectorsDataGridView.DataSource = inspectors;
+
         }
     }
 }
